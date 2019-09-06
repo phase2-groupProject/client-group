@@ -64,3 +64,26 @@ $('#logout').click(event => {
         showLogin()
     }
 })
+
+function onSignIn(googleUser) {
+    
+    const id_token = googleUser.getAuthResponse().id_token;
+
+    const options = {
+        method: 'POST',
+        headers: {
+            id_token
+        },
+        url: 'http://localhost:3000/user/oauth/login',
+    };
+    axios(options)
+        .then(({
+            data
+        }) => {
+            localStorage.setItem("token", data.token)
+            showMain()
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}

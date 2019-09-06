@@ -19,8 +19,9 @@
 </head>
 
 <body>
-    <div class="container mt-5">
-        <div class="row">
+    <!-- Login // id = "login-container" -->
+    <div id = "login-container" class="container mt-5">        
+        <div class="row">            
             <div class="col-md-6">
                 <div class="card text-white bg-dark">
                     <div class="card-header">
@@ -71,12 +72,16 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary">Submit</button>
+                            <hr>
+                            <div class="g-signin2" data-onsuccess="onSignIn"></div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>>
+    </div>
+    <!-- END LOGIN -->
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
