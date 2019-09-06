@@ -15,14 +15,59 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./css/f9175acd-a5e6-488f-98f7-c3a73f726109_200x200.png" />
     <title>Moodbuster</title>
 </head>
-<nav class="d-flex justify-content-center align item-center p-2">
-    <img src="./css/5430642c-ea6e-404b-a2d3-f4cf8d59e4ee_200x200 (1) (1).png" alt="Moodbuster Logo">
-</nav>
 
 <body>
-    <footer class="p-4">
+    <nav class="d-flex justify-content-center align item-center p-2 shadow-lg">
+        <img src="./css/5430642c-ea6e-404b-a2d3-f4cf8d59e4ee_200x200 (1) (1).png" alt="Moodbuster Logo">
+    </nav>
+
+    <div id="second-step" style="display: none">
+        <div class="main-content d-flex justify-content-center align-items-center">
+            <div class="p-5 d-flex flex-column justify-content-between align-items-center">
+                <div class="main-question mb-3">
+                    <h1>What do you feel right now?</h1>
+                </div>
+                <div class="mt-3 input-card p-5 shadow-lg">
+                    <form class="d-flex flex-column justify-content-between align-items-center">
+                        <input id="search-box" type="text" placeholder="Input what do you feel in here" id="search"
+                            class="form-control" autocomplete="off">
+                        <button class="main-btn mt-5 btn" type="button" onclick="search()">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="third-step" style="display: block">
+        <div class="main-content d-flex flex-column justify-content-start align-items-center">
+            <div class="main-title">
+                <h1>Movies recommendations</h1>
+            </div>
+            <div class="movie-list p-3 row">
+                <div class="movie-detail d-flex justify-content-between align-items-center p-3 shadow-lg">
+                    <div class="movie-poster"><img class="poster-image" src="./css/endgame.jpg" alt="avenger poster">
+                    </div>
+                    <div class="movie-info d-flex flex-column justify-content-between align-items-start ml-3">
+                        <h3>Avenger Endgame</h3>
+                        <p>Overview :</p>
+                        <div>
+                            <p class="movie-description" style="max-width: 250px;max-height: 100px;text-align: justify">lorem
+                                ipsum ahwdjhawaajawdkadkb ajdajkbwdkjaw dkjbadjkab dajbdk ajbdka jbdajk sdadsd  sdg s hseef f ag sg ae gae rga eg srw e e d da fa efa ef awe faw efae wf</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center" style="width: 100%">
+                            <h6>Vote : 9.1</h6>
+                            <button class="main-btn btn" type="button" onclick="">See Trailer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="p-4 shadow-lg">
         <div class="d-flex align-items-center">
             <h4>Contact Us On</h4>
         </div>
