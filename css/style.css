@@ -13,7 +13,7 @@ body{
 footer {
     z-index: 9;
     bottom: 0px;
-    position: fixed;
+    position: relative;
     width: 100%;
     background-color: #211f1e;
     color: whitesmoke;
@@ -111,7 +111,7 @@ input{
     border-radius: 10px;
 }
 .poster-image{
-    width: 8rem;
+    width: 10rem;
 }
 .movie-info{
     height: 100%;
@@ -130,4 +130,16 @@ input{
     -webkit-line-clamp: 4; /* number of lines to show */
     line-height: 1.5;        /* fallback */
     max-height: 4*1.5;       /* fallback */
+}
+.maker{
+    color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    transition: 0.5s all;
+}
+.maker:hover{
+    font-size: 110%;
+    color: #c40202;
+    text-decoration: none;
+    transition: 0.5s all;
 }
