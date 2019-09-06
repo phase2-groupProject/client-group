@@ -24,7 +24,7 @@ $(document).ready(function () {
         Swal.showLoading()
         axios({
                 method: 'post',
-                url: 'http://localhost:3000/user/register',
+                url: 'http://35.239.236.26/user/register',
                 data: {
                     "name": $('#reg-name').val(),
                     "email": $('#reg-email').val(),
@@ -58,7 +58,7 @@ $(document).ready(function () {
         Swal.showLoading()
         axios({
                 method: 'post',
-                url: 'http://localhost:3000/user/signIn',
+                url: 'http://35.239.236.26/user/signIn',
                 data: {
                     "email": $('#login-email').val(),
                     "password": $('#login-password').val()
@@ -96,7 +96,7 @@ function showQuotes() {
         method: 'GET',
         url: 'https://api.adviceslip.com/advice',
     };
-
+    $('#quotes').empty()
     axios(options)
         .then(({
             data
@@ -107,8 +107,6 @@ function showQuotes() {
         .catch((error) => {
             console.log(error);
         });
-
-    $('#quote')
 }
 
 function toLogin() {
@@ -127,7 +125,7 @@ function submitMood() {
     Swal.showLoading()
     axios({
         method: 'post',
-        url: 'http://localhost:3000/movie/',
+        url: 'http://35.239.236.26/movie/',
         headers: {
             token
         },
@@ -158,7 +156,7 @@ function submitMood() {
             <p class="movie-description" style="max-width: 250px;max-height: 100px;text-align: justify">${mov.overview}</p>
         </div>
         <div class="d-flex justify-content-between align-items-center" style="width: 100%">
-            <h6>${mov.vote_average}</h6>
+            <h6><i class="fas fa-star yellow"></i> ${mov.vote_average}</h6>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick='giveTrailer("${mov.title}")'>
             See Trailer
       </button>
@@ -180,7 +178,7 @@ function giveTrailer(name) {
 
     axios({
         method: 'get',
-        url: `http://localhost:3000/movie/${name}`,
+        url: `http://35.239.236.26/movie/${name}`,
         headers: {
             token
         }
@@ -212,7 +210,7 @@ function onSignIn(googleUser) {
         data: {
             idToken
         },
-        url: 'http://localhost:3000/user/gsignIn',
+        url: 'http://35.239.236.26/user/gsignIn',
     };
     axios(options)
         .then(({
