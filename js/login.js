@@ -29,7 +29,7 @@ $("#login-form").submit(function (event) {
     console.log('submited')
     axios({
             method: 'post',
-            url: 'http://localhost:3000/user/login',
+            url: 'http://localhost:3000/user/signIn',
             data: {
                 "email": $('#login-email').val(),
                 "password": $('#login-password').val()

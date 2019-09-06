@@ -13,7 +13,7 @@ body{
 footer {
     z-index: 9;
     bottom: 0px;
-    position: fixed;
+    position: relative;
     width: 100%;
     background-color: #211f1e;
     color: whitesmoke;
