@@ -73,7 +73,7 @@ $(document).ready(function () {
                 data
             }) => {
                 Swal.close()
-                Swal.fire("Success!","Logged in!", "success");
+                Swal.fire("Success!", "Logged in!", "success");
                 localStorage.setItem("token", data.token)
                 $('#beforeIn').show()
                 $('#login-container').hide()
@@ -84,7 +84,7 @@ $(document).ready(function () {
                 $('#third-step').hide()
             })
             .catch((err) => {
-                Swal.fire("Error!",err.message, "error");
+                Swal.fire("Error!", err.message, "error");
             });
     });
 
@@ -148,7 +148,7 @@ function submitMood() {
         $('#third-step').show()
         for (let i = 0; i < data.kumpulan.length; i++) {
             let mov = data.kumpulan[i]
-            let insert = `<div class="movie-detail d-flex justify-content-between align-items-center p-3 shadow-lg">
+            let insert = `<div class="movie-detail col-12 col-sm-6 col-lg-4 d-flex justify-content-between align-items-center p-3 shadow-lg">
     <div class="movie-poster"><img class="poster-image" src="${mov.image}" alt="avenger poster">
     </div>
     <div class="movie-info d-flex flex-column justify-content-between align-items-start ml-3">
@@ -159,7 +159,7 @@ function submitMood() {
         </div>
         <div class="d-flex justify-content-between align-items-center" style="width: 100%">
             <h6>${mov.vote_average}</h6>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="giveTrailer('${mov.title}')">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick='giveTrailer("${mov.title}")'>
             See Trailer
       </button>
         </div>
@@ -174,63 +174,92 @@ function submitMood() {
 }
 
 function giveTrailer(name) {
+    // $('#exampleModal').show();
+    // $('.modal-backdrop').show();
     let token = localStorage.getItem('token')
+
     axios({
         method: 'get',
         url: `http://localhost:3000/movie/${name}`,
         headers: {
             token
         }
-    }).then(({
-        data
-    }) => {
-
-        let yutubs = `      
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
+    }).then(({data}) => {
+        let yutubs = `    
+      
             <iframe width="480" height="360"
             src="https://www.youtube.com/embed/${data}">
             </iframe>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
+            
         `
-        $('#exampleModal').html(yutubs)
+        $('#trailerContent').html(yutubs)
 
     }).catch(err => {
+        console.log(err)
         Swal.fire("Error!", err.message, "error");
     })
 }
+function closeTrailer(){
+    console.log($('#exampleModal').modal)
+    $('#exampleModal').modal('hide');
+    // $('.modal-backdrop').hide();
+}
 
 function onSignIn(googleUser) {
-    
-    const id_token = googleUser.getAuthResponse().id_token;
-
+    const idToken = googleUser.getAuthResponse().id_token;
     const options = {
         method: 'POST',
-        headers: {
-            id_token
+        data: {
+            idToken
         },
-        url: 'http://localhost:3000/user/oauth/login',
+        url: 'http://localhost:3000/user/gsignIn',
     };
     axios(options)
         .then(({
             data
         }) => {
             localStorage.setItem("token", data.token)
-            showMain()
+            $('#beforeIn').show()
+            $('#login-container').hide()
+            $('#landing-container').hide()
+            $('#puter').show()
+            $('#navIn').show()
+            $('#second-step').show()
+            $('#third-step').hide()
         })
         .catch((error) => {
-            console.log(error);
+            Swal.fire("Error!", error.message, "error");
         });
+}
+
+function signOut() {
+    event.preventDefault()
+    if (gapi.auth2) {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            Swal.fire("Success!","Logout Success!", "success");
+            localStorage.removeItem("token")
+            showQuotes()
+            $('#beforeIn').hide()
+            $('#login-container').hide()
+            $('#landing-container').show()
+            $('#puter').hide()
+            $('#navIn').hide()
+            $('#second-step').hide()
+            $('#third-step').hide()
+
+        })
+    } else {
+        Swal.fire("Success!","Logout Success!", "success");
+        localStorage.removeItem("token")
+        showQuotes()
+        $('#beforeIn').hide()
+        $('#login-container').hide()
+        $('#landing-container').show()
+        $('#puter').hide()
+        $('#navIn').hide()
+        $('#second-step').hide()
+        $('#third-step').hide()
+
     }
+}

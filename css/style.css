@@ -8,12 +8,10 @@ nav{
     color: red;
 }
 body{
-    background-image: url('./wp2757874-wallpaper-gif.gif')
+    background-image: url('./wp2757874-wallpaper-gif.gif');
 }
 footer {
-    z-index: 9;
     bottom: 0px;
-    position: relative;
     width: 100%;
     background-color: #211f1e;
     color: whitesmoke;
@@ -22,7 +20,6 @@ footer {
     flex-direction: column;
     align-items: center;
 }
-
 .contactList {
     font-family: 'Roboto', sans-serif;
     display: flex;
@@ -63,7 +60,7 @@ footer {
     align-items: center;
 }.main-content{
 
-    height: 100vh;
+    min-height: 100vh;
 }
 .input-card{
     background-color: #211f1e;
@@ -149,4 +146,7 @@ input{
     color: #c40202;
     text-decoration: none;
     transition: 0.5s all;
+}
+.modal.dialog{
+    background-color: #211f1e;
 }
