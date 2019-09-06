@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+nav{
+    z-index: 9;
+    top: 0px;
+    position: fixed;
+    width: 100%;
+    background-color: #211f1e;
+    color: red;
+}
+body{
+    background-image: url('./wp2757874-wallpaper-gif.gif');
+}
+footer {
+    bottom: 0px;
+    width: 100%;
+    background-color: #211f1e;
+    color: whitesmoke;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contactList {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.contactList li a {
+    color: grey;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    transition: 0.3s all;
+}
+
+.contactList li a:hover {
+    font-size: 18px;
+    color: red;
+    transition: 0.3s all;
+}
+
+.contactBox {
+    width: 70%;
+}
+
+#copyrights {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#landing-container, #login-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}.main-content{
+
+    min-height: 100vh;
+}
+.input-card{
+    background-color: #211f1e;
+    border-radius: 10px;
+}
+label{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    color: whitesmoke;
+    font-size: 30px;
+}
+input{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+}
+.main-question h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    color: whitesmoke;
+}
+.main-btn{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    border: 3px solid whitesmoke;
+    color: whitesmoke;
+    transition: 0.7s all;
+}
+.main-btn:hover{
+    border: 3px solid #c40202;
+    background-color: #c40202;
+    color: whitesmoke;
+    transition: 0.7s all;
+}
+#search-box{
+    width: 75%;
+    transition:width 1s;
+    -webkit-transition:width 1s;
+}
+#search-box:focus{
+    width:100%;
+}
+.main-title{
+    margin-top: 6rem;
+}
+.main-title h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    color: whitesmoke;
+}
+.movie-detail{
+    background-color: #211f1e;
+    border-radius: 10px;
+}
+.poster-image{
+    width: 10rem;
+}
+.movie-info{
+    height: 100%;
+}
+.movie-info h3, p, h6{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    color: whitesmoke;
+}
+.movie-description{
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4; /* number of lines to show */
+    line-height: 1.5;        /* fallback */
+    max-height: 4*1.5;       /* fallback */
+}
+.maker{
+    color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    transition: 0.5s all;
+}
+.maker:hover{
+    font-size: 110%;
+    color: #c40202;
+    text-decoration: none;
+    transition: 0.5s all;
+}
+.modal.dialog{
+    background-color: #211f1e;
+}
+.yellow{
+    color: yellow;
+}
